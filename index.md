@@ -1,0 +1,13 @@
+# StockWatch Sandbox POC privacy policy
+
+StockWatch is a local Windows proof of concept for monitoring eBay listing quantities. Signing in and granting access take place on eBay. StockWatch uses the resulting OAuth credentials to read listing quantities and uses the eBay Sandbox for Sandbox tests.
+
+StockWatch stores the developer app configuration and OAuth tokens on the Windows computer running the backend. It stores listing IDs, titles, SKUs and variation attributes where returned, listed quantities, listing links, thresholds, check times and status, and alert and acknowledgment records. It also stores a local client credential and API call timestamps for authentication and rate limiting. The app uses this information to monitor stock, show status and send Windows notifications. Notification text may include listing details and be visible to others using or viewing the same device. eBay receives the authentication and listing requests. The local notifier receives alert and status information from the backend over loopback.
+
+StockWatch encrypts its persisted app configuration, tokens and monitoring state with Windows current-user data protection. There is no StockWatch hosted inventory service or analytics integration in this proof. Windows notification history, browser history, and any backups or folder sync configured on the computer are managed separately. If this policy is published on a third-party site, that site may process visits under its own privacy policy.
+
+StockWatch keeps the latest listing state and settings until they are replaced or deleted. Listing records that disappear from a subsequent read may remain marked unknown. During checks, the backend trims acknowledged and obsolete alert history to the previous seven days and at most 2,000 such records. Pending alerts can remain until acknowledged or superseded. The notifier retains up to 2,000 handled alert IDs. Timed pruning occurs while the app runs. Stored OAuth credentials can remain after expiration until replaced or removed.
+
+To remove locally stored seller tokens, pending authorization, inventory, thresholds and alert state, stop the backend and notifier and follow the disconnect instructions provided with your test copy. The command retains app configuration, the local client credential and rate-limit state. Delete the dedicated StockWatch data folder with both processes stopped if you also want to remove those remaining local files. This does not delete any copies held by a backup service or clear Windows or browser history. To withdraw access on eBay, revoke the app’s consent from the eBay account used for the test.
+
+For privacy questions or help removing data, contact the operator who provided your StockWatch test copy.
